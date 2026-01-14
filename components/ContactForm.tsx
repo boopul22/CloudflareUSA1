@@ -18,23 +18,43 @@ export const ContactForm: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/ce57e054407ea45f4a913af5aed3f427', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formState.name,
-          phone: formState.phone,
-          email: formState.email,
-          message: formState.message,
-          _subject: 'New Claim Request - Auto File Claim',
-          _template: 'table'
-        })
-      });
+      const formData = {
+        name: formState.name,
+        phone: formState.phone,
+        email: formState.email,
+        message: formState.message
+      };
 
-      if (response.ok) {
+      // Send to both Email (FormSubmit.co) and Google Sheets in parallel
+      const [emailResponse, sheetsResponse] = await Promise.allSettled([
+        // Email notification via FormSubmit.co
+        fetch(process.env.NEXT_PUBLIC_FORMSUBMIT_URL!, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            ...formData,
+            _subject: 'New Claim Request - Autoclaimfiling.online',
+            _template: 'table'
+          })
+        }),
+        // Google Sheets lead tracking
+        fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL!, {
+          method: 'POST',
+          mode: 'no-cors', // Required for Google Apps Script
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+      ]);
+
+      // Check if at least email was sent successfully
+      const emailSuccess = emailResponse.status === 'fulfilled' && emailResponse.value.ok;
+
+      if (emailSuccess) {
         setSubmitStatus('success');
         setFormState({ name: '', phone: '', email: '', message: '' });
       } else {
@@ -205,6 +225,14 @@ export const ContactForm: React.FC = () => {
                 </div>
               </div>
 
+              {/* Honeypot for Spam Protection (FormSubmit.co) */}
+              <input type="text" name="_honey" style={{ display: 'none' }} />
+
+              {/* Disable Captcha to improve conversion (optional, can be enabled if spam is high) */}
+              <input type="hidden" name="_captcha" value="false" />
+
+
+
               <Button
                 type="submit"
                 fullWidth
@@ -230,7 +258,7 @@ export const ContactForm: React.FC = () => {
           </div>
         </div>
 
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };

@@ -25,20 +25,20 @@ export const Navbar: React.FC = () => {
     setIsOpen(false);
     // If navigating to home or an anchor, ensure we are in the base route if needed
     if (href === '#') {
-       window.location.hash = '';
-       window.scrollTo(0, 0);
+      window.location.hash = '';
+      window.scrollTo(0, 0);
     } else if (href.startsWith('#')) {
-       // If on another page (like terms), we need to go to root then anchor
-       if (window.location.hash.includes('terms') || window.location.hash.includes('privacy')) {
-           window.location.hash = '';
-           setTimeout(() => {
-               const element = document.querySelector(href);
-               element?.scrollIntoView({ behavior: 'smooth' });
-           }, 100);
-       } else {
-           const element = document.querySelector(href);
-           element?.scrollIntoView({ behavior: 'smooth' });
-       }
+      // If on another page (like terms), we need to go to root then anchor
+      if (window.location.hash.includes('terms') || window.location.hash.includes('privacy')) {
+        window.location.hash = '';
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -48,32 +48,34 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => handleNavClick('#')}>
-             <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center mr-2">
-                <span className="text-white font-bold text-xl">A</span>
-             </div>
-             <span className="font-bold text-xl text-brand-dark tracking-tight">Auto File Claim</span>
+            <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center mr-2">
+              <span className="text-white font-bold text-xl">A</span>
+            </div>
+            <span className="font-bold text-xl text-brand-dark tracking-tight">Autoclaimfiling.online</span>
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button 
-                key={item.label} 
+              <button
+                key={item.label}
                 onClick={() => handleNavClick(item.href)}
                 className="text-gray-600 hover:text-brand-primary font-medium transition-colors focus:outline-none"
               >
                 {item.label}
               </button>
             ))}
-            <Button variant="outline" className="flex items-center gap-2 py-2">
-              <Phone size={18} />
-              888 408 0938
-            </Button>
+            <a href="tel:8884080938">
+              <Button variant="outline" className="flex items-center gap-2 py-2">
+                <Phone size={18} />
+                888 408 0938
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 hover:text-gray-900 focus:outline-none"
             >
@@ -96,10 +98,12 @@ export const Navbar: React.FC = () => {
             </button>
           ))}
           <div className="pt-4">
-             <Button fullWidth variant="outline" className="justify-center gap-2">
-               <Phone size={18} />
-               Call: 888 408 0938
-             </Button>
+            <a href="tel:8884080938" className="block">
+              <Button fullWidth variant="outline" className="justify-center gap-2">
+                <Phone size={18} />
+                Call: 888 408 0938
+              </Button>
+            </a>
           </div>
         </div>
       </div>

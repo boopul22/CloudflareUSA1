@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Auto File Claim - Expert Accident Assistance</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-              brand: {
-                dark: '#0F172A', // Slate 900
-                primary: '#2563EB', // Blue 600
-                primaryHover: '#1D4ED8', // Blue 700
-                light: '#F8FAFC', // Slate 50
-              }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autoclaimfiling.online - Expert Accident Assistance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0F172A', // Slate 900
+              primary: '#2563EB', // Blue 600
+              primaryHover: '#1D4ED8', // Blue 700
+              light: '#F8FAFC', // Slate 50
             }
           }
         }
       }
-    </script>
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        -webkit-font-smoothing: antialiased;
-      }
-      /* Smooth scrolling for anchor links */
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -45,10 +47,13 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="preload" as="image" href="/images/hero.png" fetchpriority="high">
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

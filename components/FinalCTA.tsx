@@ -9,7 +9,7 @@ export const FinalCTA: React.FC = () => {
           We’re Here When You Need Us Most
         </h2>
         <p className="text-xl text-gray-400 mb-10">
-          Being in a car accident is stressful — getting help shouldn’t be. At Auto File Claim, we make it easy to connect with our claims team so you can get the support and answers you need, fast.
+          Being in a car accident is stressful — getting help shouldn’t be. At Autoclaimfiling.online, we make it easy to connect with our claims team so you can get the support and answers you need, fast.
         </p>
         <Button size="lg" className="px-10 py-4 text-lg bg-brand-primary hover:bg-brand-primaryHover shadow-xl shadow-blue-900/50">
           Get Free Claim Now
