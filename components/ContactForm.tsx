@@ -28,7 +28,7 @@ export const ContactForm: React.FC = () => {
       // Send to both Email (FormSubmit.co) and Google Sheets in parallel
       const [emailResponse, sheetsResponse] = await Promise.allSettled([
         // Email notification via FormSubmit.co
-        fetch(process.env.NEXT_PUBLIC_FORMSUBMIT_URL!, {
+        fetch('https://formsubmit.co/ajax/cee86aeecedf66e1d57f7ceb2e49c07b', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export const ContactForm: React.FC = () => {
           })
         }),
         // Google Sheets lead tracking
-        fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL!, {
+        fetch('https://script.google.com/macros/s/AKfycbwDKZZDO6vGNwL-x_I-v15EzQCrCdeEgsvRee2wdG4H96XiuTqxG7-zfuaTF4kV3FTP0g/exec', {
           method: 'POST',
           mode: 'no-cors', // Required for Google Apps Script
           headers: {
