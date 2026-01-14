@@ -1,7 +1,17 @@
 {
-    "name": "autoclaimfiling-online",
+    "name": "cloudflareusa1",
     "compatibility_date": "2026-01-14",
     "assets": {
         "directory": "./dist"
-    }
+    },
+    "routes": [
+        {
+            "pattern": "autoclaimfiling.online",
+            "custom_domain": true
+        },
+        {
+            "pattern": "www.autoclaimfiling.online",
+            "custom_domain": true
+        }
+    ]
 }
