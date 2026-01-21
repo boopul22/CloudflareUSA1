@@ -65,10 +65,10 @@ export const Navbar: React.FC = () => {
                 {item.label}
               </button>
             ))}
-            <a href="tel:8884080938">
+            <a href="tel:8886263214">
               <Button variant="outline" className="flex items-center gap-2 py-2">
                 <Phone size={18} />
-                888 408 0938
+                888 626 3214
               </Button>
             </a>
           </div>
@@ -98,10 +98,10 @@ export const Navbar: React.FC = () => {
             </button>
           ))}
           <div className="pt-4">
-            <a href="tel:8884080938" className="block">
+            <a href="tel:8886263214" className="block">
               <Button fullWidth variant="outline" className="justify-center gap-2">
                 <Phone size={18} />
-                Call: 888 408 0938
+                Call: 888 626 3214
               </Button>
             </a>
           </div>

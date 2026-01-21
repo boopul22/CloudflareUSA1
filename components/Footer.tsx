@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-xs uppercase tracking-wider text-gray-500 mb-1">Phone</span>
-                  <a href="tel:8884080938" className="text-white font-bold text-lg hover:text-brand-primary transition-colors cursor-pointer">888 408 0938</a>
+                  <a href="tel:8886263214" className="text-white font-bold text-lg hover:text-brand-primary transition-colors cursor-pointer">888 626 3214</a>
                 </div>
               </li>
               <li className="flex items-start gap-4 group">

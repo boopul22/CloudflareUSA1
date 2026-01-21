@@ -10,37 +10,53 @@ export const Hero: React.FC = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left animate-fade-in-up">
             <div className="inline-block px-4 py-1.5 bg-blue-100 text-brand-primary font-semibold text-xs md:text-sm rounded-full mb-6">
-              #1 Accident Assistance Service
+              24/7 Expert Claims Assistance
             </div>
             <h1 className="text-3xl md:text-5xl xl:text-6xl font-bold text-brand-dark leading-tight mb-6">
-              Injured in a Car Accident? <span className="text-brand-primary block lg:inline">We're Here to Help.</span>
+              Fast, Stress-Free <span className="text-brand-primary block lg:inline">Support for Non-Fault Accidents</span>
             </h1>
             <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Get expert help to claim compensation for repairs, medical bills, and lost wages.
-              We fight the insurance companies so you don't have to. No fees unless you win.
+              Secure the compensation you deserve with guidance from our dedicated UK-based specialists.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button href="#contact" className="shadow-lg shadow-blue-500/30 w-full sm:w-auto">
-                Free Claim Review
+                Begin Your Free Claim
               </Button>
-              <Button variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50 w-full sm:w-auto">
-                Learn More
+              <Button variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50 w-full sm:w-auto" href="tel:08002465120">
+                📞 0800 246 5120
               </Button>
             </div>
-            <div className="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-500">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map(i => (
-                  <img
-                    key={i}
-                    src={`/images/avatar${i}.png`}
-                    alt={`User ${i}`}
-                    className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                    width="32"
-                    height="32"
-                  />
-                ))}
+
+            {/* Key Features */}
+            <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+              <div className="flex items-center gap-2 text-gray-700">
+                <svg className="w-5 h-5 text-brand-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-medium">Rapid, Responsive Support</span>
               </div>
-              <p>Trusted by 10,000+ drivers</p>
+              <div className="flex items-center gap-2 text-gray-700">
+                <svg className="w-5 h-5 text-brand-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-medium">Full Claims Management</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <svg className="w-5 h-5 text-brand-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-medium">Like-for-Like Replacement Cars</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <svg className="w-5 h-5 text-brand-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-medium">24/7 Assistance</span>
+              </div>
+            </div>
+
+            <div className="mt-6 text-center lg:text-left">
+              <p className="text-sm text-gray-500 font-medium">Need Immediate Help? Call <a href="tel:08002465120" className="text-brand-primary hover:underline font-semibold">0800 246 5120</a></p>
             </div>
           </div>
 
