@@ -22,8 +22,8 @@ export const Hero: React.FC = () => {
               <Button href="#contact" className="shadow-lg shadow-blue-500/30 w-full sm:w-auto">
                 Begin Your Free Claim
               </Button>
-              <Button variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50 w-full sm:w-auto" href="tel:08002465120">
-                📞 0800 246 5120
+              <Button variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50 w-full sm:w-auto" href="tel:8886263214">
+                📞 888 626 3214
               </Button>
             </div>
 
@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
             </div>
 
             <div className="mt-6 text-center lg:text-left">
-              <p className="text-sm text-gray-500 font-medium">Need Immediate Help? Call <a href="tel:08002465120" className="text-brand-primary hover:underline font-semibold">0800 246 5120</a></p>
+              <p className="text-sm text-gray-500 font-medium">Need Immediate Help? Call <a href="tel:8886263214" className="text-brand-primary hover:underline font-semibold">888 626 3214</a></p>
             </div>
           </div>
 

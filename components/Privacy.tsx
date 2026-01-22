@@ -280,7 +280,7 @@ export const Privacy: React.FC = () => {
             </p>
             <div className="bg-brand-primary/5 border border-brand-primary/20 rounded-lg p-5 mt-4">
               <p className="leading-relaxed">
-                <strong>To opt out of the sale of your personal information:</strong> Please email us at <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a> with the subject line "Do Not Sell My Personal Information" or call us at <a href="tel:8886263214" className="text-brand-primary hover:underline">888-626-3214</a>.
+                <strong>To opt out of the sale of your personal information:</strong> Please email us at <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a> with the subject line "Do Not Sell My Personal Information" or call us at <a href="tel:8886263214" className="text-brand-primary hover:underline">888 626 3214</a>.
               </p>
             </div>
           </section>
@@ -331,7 +331,7 @@ export const Privacy: React.FC = () => {
             <div className="bg-gray-50 rounded-lg p-5 border border-gray-100">
               <p className="mb-2"><strong>Autoclaimfiling.online</strong></p>
               <p className="mb-1">Email: <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a></p>
-              <p className="mb-1">Phone: <a href="tel:8886263214" className="text-brand-primary hover:underline">888-626-3214</a></p>
+              <p className="mb-1">Phone: <a href="tel:8886263214" className="text-brand-primary hover:underline">888 626 3214</a></p>
               <p>Address: Florida, USA</p>
             </div>
             <p className="leading-relaxed mt-4">

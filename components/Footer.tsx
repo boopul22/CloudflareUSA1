@@ -104,6 +104,9 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-gray-500 leading-relaxed">
               Autoclaimfiling.online is a marketing service connecting consumers with legal and insurance professionals. We are not a law firm, do not provide legal advice, and do not make decisions regarding claims. All case evaluations are performed by third-party professionals. Results are not guaranteed and past performance does not predict future outcomes.
             </p>
+            <p className="text-xs text-gray-500 leading-relaxed mt-4">
+              As an independent service, we have no ties to any insurance companies. We are a lead generation marketing company which generate MVA leads for a panel of Third Party companies.
+            </p>
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">

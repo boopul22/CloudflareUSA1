@@ -289,7 +289,7 @@ export const Terms: React.FC = () => {
             <div className="bg-gray-50 rounded-lg p-5 border border-gray-100">
               <p className="mb-2"><strong>Autoclaimfiling.online</strong></p>
               <p className="mb-1">Email: <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a></p>
-              <p className="mb-1">Phone: <a href="tel:8886263214" className="text-brand-primary hover:underline">888-626-3214</a></p>
+              <p className="mb-1">Phone: <a href="tel:8886263214" className="text-brand-primary hover:underline">888 626 3214</a></p>
               <p>Address: Florida, USA</p>
             </div>
           </section>
