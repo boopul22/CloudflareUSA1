@@ -10,6 +10,8 @@ import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { Terms } from './components/Terms';
 import { Privacy } from './components/Privacy';
+import { PrivacyChoices } from './components/PrivacyChoices';
+import { WaHealthPolicy } from './components/WaHealthPolicy';
 
 const App: React.FC = () => {
   const [route, setRoute] = useState(window.location.hash);
@@ -23,7 +25,9 @@ const App: React.FC = () => {
   const renderContent = () => {
     if (route === '#terms') return <Terms />;
     if (route === '#privacy') return <Privacy />;
-    
+    if (route === '#privacy-choices') return <PrivacyChoices />;
+    if (route === '#wa-health-policy') return <WaHealthPolicy />;
+
     // Default Landing Page
     return (
       <>

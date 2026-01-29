@@ -3,20 +3,16 @@ import { FinalCTA } from './FinalCTA';
 import { ChevronUp, List, X } from 'lucide-react';
 
 const sections = [
-  { id: 'introduction', title: '1. Introduction' },
-  { id: 'information-collected', title: '2. Information We Collect' },
-  { id: 'how-we-use', title: '3. How We Use Your Information' },
-  { id: 'sharing', title: '4. Sharing of Information' },
-  { id: 'cookies', title: '5. Cookies & Tracking Technologies' },
-  { id: 'data-security', title: '6. Data Security' },
-  { id: 'data-retention', title: '7. Data Retention' },
-  { id: 'your-rights', title: '8. Your Rights' },
-  { id: 'california', title: '9. California Privacy Rights (CCPA)' },
-  { id: 'do-not-sell', title: '10. Do Not Sell My Information' },
-  { id: 'children', title: '11. Children\'s Privacy' },
-  { id: 'third-party', title: '12. Third-Party Links' },
-  { id: 'changes', title: '13. Changes to This Policy' },
-  { id: 'contact', title: '14. Contact Information' },
+  { id: 'introduction', title: '1. Introduction and Scope' },
+  { id: 'not-law-firm', title: '2. Not a Law Firm or Insurance Provider' },
+  { id: 'information-collected', title: '3. Information Collected' },
+  { id: 'california-colorado', title: '4. CA & CO Notice: Do Not Sell' },
+  { id: 'use-sharing', title: '5. Use and Sharing of Data' },
+  { id: 'tcpa', title: '6. TCPA Consent' },
+  { id: 'cookies', title: '7. Cookies and Tracking' },
+  { id: 'security', title: '8. Security and Retention' },
+  { id: 'minors', title: '9. Minors' },
+  { id: 'contact', title: '10. Contact Us' },
 ];
 
 export const Privacy: React.FC = () => {
@@ -52,9 +48,9 @@ export const Privacy: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-5xl font-bold text-brand-dark mb-4">Privacy Policy</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-brand-dark mb-4">PRIVACY POLICY</h1>
           <p className="text-gray-500 text-sm">
-            Last Updated: January 14, 2025
+            Last Updated: January 26, 2026
           </p>
         </div>
 
@@ -114,230 +110,109 @@ export const Privacy: React.FC = () => {
 
         <div className="prose prose-lg max-w-none text-gray-600 space-y-10">
           <section id="introduction">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">1. Introduction</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">1. INTRODUCTION AND SCOPE</h2>
             <p className="leading-relaxed">
-              Welcome to Autoclaimfiling.online ("we," "our," or "us"). Your privacy is important to us, and we are committed to protecting the personal information you share with us.
+              Autoclaimfiling.online (“Company,” “we,” “our,” or “us”) is a marketing and technology platform. This Privacy Policy governs the personal information we collect when you: (a) visit our website (the “Site”); (b) utilize our claim-facilitation tools; or (c) contact us via our dedicated telephone lines or request to be contacted by our third-party marketing partners, including but not limited to, law firms, intake specialists, and legal advocates (collectively, “Marketing Partners”).
             </p>
-            <p className="leading-relaxed mt-4">
-              This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at <a href="https://autoclaimfiling.online" className="text-brand-primary hover:underline">https://autoclaimfiling.online</a> ("Site") or use our services ("Services"). Please read this Privacy Policy carefully.
-            </p>
-            <p className="leading-relaxed mt-4">
-              By using our Site or Services, you consent to the practices described in this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not access the Site or use our Services.
+            <div className="bg-red-50 border border-red-200 rounded-lg p-5 mt-4">
+              <p className="leading-relaxed font-medium text-red-800">
+                IF YOU DO NOT AGREE TO THIS PRIVACY POLICY IN ITS ENTIRETY, YOU MAY NOT ACCESS THE SITE OR UTILIZE OUR SERVICES.
+              </p>
+            </div>
+          </section>
+
+          <section id="not-law-firm">
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">2. NOT A LAW FIRM OR INSURANCE PROVIDER</h2>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5 mb-4">
+              <p className="leading-relaxed font-medium text-yellow-800">
+                <strong>Important Disclosure:</strong> Autoclaimfiling.online is not a law firm, a lawyer referral service, or an insurance company. We do not provide legal advice, mediation, or insurance adjusting services.
+              </p>
+            </div>
+            <p className="leading-relaxed">
+              <strong>No Attorney-Client Relationship:</strong> Your use of the Site, or any communication with our representatives via telephone, does not create an attorney-client relationship between you and the Company or any Marketing Partner. An attorney-client relationship is only formed if you sign a formal engagement agreement directly with a law firm.
             </p>
           </section>
 
           <section id="information-collected">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">2. Information We Collect</h2>
-            <p className="leading-relaxed mb-4">We may collect the following types of information:</p>
-
-            <h3 className="text-lg font-semibold text-brand-dark mb-3">Personal Information</h3>
-            <p className="leading-relaxed mb-2">Information that identifies you personally, including but not limited to:</p>
-            <ul className="list-disc pl-6 space-y-2 mb-6">
-              <li>Full name</li>
-              <li>Email address</li>
-              <li>Phone number (mobile and/or landline)</li>
-              <li>Mailing address</li>
-              <li>Date and location of accident</li>
-              <li>Vehicle information</li>
-              <li>Insurance policy details</li>
-              <li>Description of accident and injuries</li>
-              <li>Medical treatment information</li>
-              <li>Any documents you choose to upload</li>
-            </ul>
-
-            <h3 className="text-lg font-semibold text-brand-dark mb-3">Non-Personal Information</h3>
-            <p className="leading-relaxed mb-2">Information that does not directly identify you, including:</p>
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">3. INFORMATION COLLECTED (WEB & TELEPHONE)</h2>
+            <p className="leading-relaxed mb-4">We collect information that identifies you (“Personal Information”) when you complete our inquiry forms or call our dedicated phone lines:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Browser type and version</li>
-              <li>Device type and operating system</li>
-              <li>IP address</li>
-              <li>Pages visited and time spent on pages</li>
-              <li>Referring website or source</li>
-              <li>Date and time of visits</li>
-              <li>Click-through data and usage statistics</li>
+              <li><strong>Identifiers:</strong> Full name, email address, zip code, and telephone number.</li>
+              <li><strong>Claim Data:</strong> Date of accident, description of property damage, and insurance status.</li>
+              <li><strong>Sensitive/Health Data:</strong> Details regarding your physical injuries and medical treatments.</li>
+              <li><strong>Audio Recordings:</strong> We record and/or monitor all inbound and outbound calls. By calling our number or providing your number to us, you expressly consent to the recording and retention of the audio and data provided during such calls for quality assurance, training, and claim verification.</li>
             </ul>
           </section>
 
-          <section id="how-we-use">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">3. How We Use Your Information</h2>
-            <p className="leading-relaxed mb-4">We use the information we collect for various purposes, including:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Claim Processing:</strong> To evaluate and process your car accident claim inquiry</li>
-              <li><strong>Communication:</strong> To contact you via phone, email, or text message regarding your claim or our services</li>
-              <li><strong>Partner Matching:</strong> To connect you with appropriate legal professionals, insurance specialists, or other service providers</li>
-              <li><strong>Service Improvement:</strong> To analyze usage patterns and improve our Site and Services</li>
-              <li><strong>Marketing:</strong> To send you promotional materials and updates (with your consent where required)</li>
-              <li><strong>Legal Compliance:</strong> To comply with legal obligations and enforce our terms</li>
-              <li><strong>Fraud Prevention:</strong> To detect, prevent, and address technical issues or fraudulent activity</li>
-            </ul>
-          </section>
-
-          <section id="sharing">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">4. Sharing of Information</h2>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-5 mb-4">
-              <p className="leading-relaxed font-medium text-blue-800">
-                We do not sell your personal information to third parties for their own marketing purposes.
+          <section id="california-colorado">
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">4. CALIFORNIA & COLORADO NOTICE: "DO NOT SELL OR SHARE MY PERSONAL INFORMATION"</h2>
+            <p className="leading-relaxed mb-4">
+              Under the California Consumer Privacy Act (CCPA/CPRA) and the Colorado Privacy Act (CPA), residents have the right to opt-out of the “sale” or “sharing” of their personal information.
+            </p>
+            <p className="leading-relaxed mb-4">
+              <strong>Notice of Sale/Sharing:</strong> Autoclaimfiling.online is a marketing platform. We share the personal information you provide (including name, contact details, and accident information) with our Marketing Partners in exchange for an administrative or marketing fee. Under certain state laws, this transfer is classified as a “sale” or “sharing” of information.
+            </p>
+            <p className="leading-relaxed mb-4">
+              <strong>Right to Opt-Out:</strong> You have the right to direct us not to sell or share your information. Please Note: If you exercise this right, we will be unable to process your claim inquiry or connect you with a Marketing Partner, as our service relies on this data transfer.
+            </p>
+            <div className="bg-brand-primary/5 border border-brand-primary/20 rounded-lg p-5">
+              <p className="leading-relaxed">
+                <strong>How to Opt-Out:</strong> To exercise this right, please visit our <a href="#privacy-choices" className="text-brand-primary hover:underline">Your Privacy Choices</a> page or email us at <a href="mailto:privacy@autofileclaim.com" className="text-brand-primary hover:underline">privacy@autofileclaim.com</a> with the subject line "Opt-Out Request."
               </p>
             </div>
-            <p className="leading-relaxed mb-4">We may share your information in the following circumstances:</p>
-            <ul className="list-disc pl-6 space-y-3">
-              <li><strong>Service Partners:</strong> We share your information with attorneys, insurance professionals, and other service providers who may assist with your claim. These partners are required to protect your information and use it only for the services requested.</li>
-              <li><strong>Marketing Partners:</strong> With your consent, we may share your information with marketing partners and affiliates.</li>
-              <li><strong>Service Providers:</strong> We may share information with third-party vendors who perform services on our behalf (e.g., hosting, analytics, customer service).</li>
-              <li><strong>Legal Requirements:</strong> We may disclose your information when required by law, court order, or government request.</li>
-              <li><strong>Protection of Rights:</strong> We may share information to protect the rights, property, or safety of Autoclaimfiling.online, our users, or others.</li>
-              <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred to the successor entity.</li>
+          </section>
+
+          <section id="use-sharing">
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">5. USE AND SHARING OF DATA (MARKETING MODEL)</h2>
+            <p className="leading-relaxed mb-4">We share your information with our Third-Party Marketing Partners.</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Administrative Fees:</strong> These partners pay us an administrative, marketing, or technology fee to receive inquiries. We do not receive a percentage of any legal recovery or insurance payout.</li>
+              <li><strong>Transfer of Data:</strong> We may transfer audio recordings, transcripts, or form data to our Partners to assist them in evaluating your potential claim.</li>
             </ul>
+          </section>
+
+          <section id="tcpa">
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">6. TCPA CONSENT & TELEMARKETING DISCLOSURE</h2>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+              <p className="leading-relaxed text-blue-900">
+                By providing your telephone number on our Site and/or initiating a call to our phone lines, you provide “prior express written consent” to be contacted by Autoclaimfiling.online and our designated Marketing Partners via live calls, artificial/synthesized voice, pre-recorded messages, and/or SMS text messages delivered via automated technology. You provide this consent even if your number is listed on any State or Federal Do-Not-Call list.
+              </p>
+            </div>
           </section>
 
           <section id="cookies">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">5. Cookies & Tracking Technologies</h2>
-            <p className="leading-relaxed mb-4">
-              We use cookies, web beacons, and similar tracking technologies to collect information about your browsing activities and to improve your experience on our Site.
-            </p>
-
-            <h3 className="text-lg font-semibold text-brand-dark mb-3">Types of Cookies We Use:</h3>
-            <ul className="list-disc pl-6 space-y-2 mb-4">
-              <li><strong>Essential Cookies:</strong> Required for basic Site functionality</li>
-              <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our Site (e.g., Google Analytics)</li>
-              <li><strong>Advertising Cookies:</strong> Used to deliver relevant advertisements and track campaign performance</li>
-              <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
-            </ul>
-
-            <h3 className="text-lg font-semibold text-brand-dark mb-3">Managing Cookies:</h3>
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">7. COOKIES AND BEHAVIORAL TRACKING</h2>
             <p className="leading-relaxed">
-              You can control cookies through your browser settings. Most browsers allow you to refuse or delete cookies. However, disabling cookies may affect the functionality of our Site.
+              We use Cookies, pixels, and tracking technology to analyze Site traffic and target advertisements to you across various devices (mobile, desktop, tablet).
             </p>
           </section>
 
-          <section id="data-security">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">6. Data Security</h2>
+          <section id="security">
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">8. SECURITY AND RETENTION</h2>
             <p className="leading-relaxed">
-              We implement reasonable administrative, technical, and physical security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction.
-            </p>
-            <p className="leading-relaxed mt-4">
-              These measures include encryption of sensitive data in transit (SSL/TLS), secure storage systems, access controls, and regular security assessments.
-            </p>
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5 mt-4">
-              <p className="leading-relaxed text-yellow-800">
-                <strong>Important:</strong> No method of transmission over the Internet or electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.
-              </p>
-            </div>
-          </section>
-
-          <section id="data-retention">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">7. Data Retention</h2>
-            <p className="leading-relaxed">
-              We retain your personal information for as long as necessary to fulfill the purposes for which it was collected, including to satisfy legal, accounting, or reporting requirements.
-            </p>
-            <p className="leading-relaxed mt-4">
-              When determining the appropriate retention period, we consider the amount, nature, and sensitivity of the information, the potential risk of harm from unauthorized use or disclosure, and applicable legal requirements.
-            </p>
-            <p className="leading-relaxed mt-4">
-              You may request deletion of your data at any time by contacting us using the information provided below.
+              We utilize industry-standard TLS encryption for data in transit. No transmission over the internet or via telephone is 100% secure; you provide data at your own risk.
             </p>
           </section>
 
-          <section id="your-rights">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">8. Your Rights</h2>
-            <p className="leading-relaxed mb-4">Depending on your location, you may have the following rights regarding your personal information:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Right to Access:</strong> Request a copy of the personal information we hold about you</li>
-              <li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete information</li>
-              <li><strong>Right to Deletion:</strong> Request deletion of your personal information</li>
-              <li><strong>Right to Portability:</strong> Request transfer of your data to another service</li>
-              <li><strong>Right to Opt-Out:</strong> Opt out of marketing communications</li>
-              <li><strong>Right to Withdraw Consent:</strong> Withdraw consent for data processing where applicable</li>
-            </ul>
-            <p className="leading-relaxed mt-4">
-              To exercise any of these rights, please contact us using the information provided at the end of this policy.
-            </p>
-          </section>
-
-          <section id="california">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">9. California Privacy Rights (CCPA)</h2>
-            <p className="leading-relaxed mb-4">
-              If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA):
-            </p>
-            <ul className="list-disc pl-6 space-y-2 mb-4">
-              <li><strong>Right to Know:</strong> You can request information about the categories and specific pieces of personal information we have collected, the sources of that information, and how we use and share it.</li>
-              <li><strong>Right to Delete:</strong> You can request that we delete personal information we have collected from you, subject to certain exceptions.</li>
-              <li><strong>Right to Opt-Out:</strong> You have the right to opt out of the sale of your personal information.</li>
-              <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your CCPA rights.</li>
-            </ul>
+          <section id="minors">
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">9. MINORS</h2>
             <p className="leading-relaxed">
-              To submit a request, please contact us using the information below. We may need to verify your identity before processing your request.
-            </p>
-          </section>
-
-          <section id="do-not-sell">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">10. Do Not Sell My Personal Information</h2>
-            <p className="leading-relaxed">
-              California residents have the right to opt out of the "sale" of their personal information as defined under the CCPA.
-            </p>
-            <p className="leading-relaxed mt-4">
-              While we do not sell personal information in the traditional sense, certain data sharing activities (such as sharing information with marketing partners) may be considered a "sale" under CCPA.
-            </p>
-            <div className="bg-brand-primary/5 border border-brand-primary/20 rounded-lg p-5 mt-4">
-              <p className="leading-relaxed">
-                <strong>To opt out of the sale of your personal information:</strong> Please email us at <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a> with the subject line "Do Not Sell My Personal Information" or call us at <a href="tel:8886263214" className="text-brand-primary hover:underline">888 626 3214</a>.
-              </p>
-            </div>
-          </section>
-
-          <section id="children">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">11. Children's Privacy</h2>
-            <div className="bg-red-50 border border-red-200 rounded-lg p-5 mb-4">
-              <p className="leading-relaxed font-medium text-red-800">
-                Our Site and Services are not intended for children under the age of 18.
-              </p>
-            </div>
-            <p className="leading-relaxed">
-              We do not knowingly collect personal information from children under 18 years of age. If we become aware that we have collected personal information from a child under 18, we will take steps to delete such information promptly.
-            </p>
-            <p className="leading-relaxed mt-4">
-              If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.
-            </p>
-          </section>
-
-          <section id="third-party">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">12. Third-Party Links</h2>
-            <p className="leading-relaxed">
-              Our Site may contain links to third-party websites, services, or applications that are not operated by us. This Privacy Policy does not apply to those third-party sites.
-            </p>
-            <p className="leading-relaxed mt-4">
-              We encourage you to review the privacy policies of any third-party sites you visit. We are not responsible for the content, privacy practices, or security of any third-party websites.
-            </p>
-          </section>
-
-          <section id="changes">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">13. Changes to This Policy</h2>
-            <p className="leading-relaxed">
-              We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.
-            </p>
-            <p className="leading-relaxed mt-4">
-              When we make material changes, we will update the "Last Updated" date at the top of this policy. We encourage you to review this Privacy Policy periodically.
-            </p>
-            <p className="leading-relaxed mt-4">
-              Your continued use of the Site or Services after any changes indicates your acceptance of the updated Privacy Policy.
+              Our services are not intended for individuals under the age of eighteen (18).
             </p>
           </section>
 
           <section id="contact">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">14. Contact Information</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">10. CONTACT US</h2>
             <p className="leading-relaxed mb-4">
-              If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
+              To exercise your privacy rights or opt-out, please contact:
             </p>
             <div className="bg-gray-50 rounded-lg p-5 border border-gray-100">
               <p className="mb-2"><strong>Autoclaimfiling.online</strong></p>
               <p className="mb-1">Email: <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a></p>
-              <p className="mb-1">Phone: <a href="tel:8886263214" className="text-brand-primary hover:underline">888 626 3214</a></p>
               <p>Address: Florida, USA</p>
             </div>
-            <p className="leading-relaxed mt-4">
-              We will respond to your inquiry within 30 days of receipt.
-            </p>
           </section>
+
         </div>
 
         {/* Acceptance Notice */}

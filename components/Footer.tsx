@@ -55,6 +55,8 @@ export const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li><a href="#terms" className="hover:text-white transition-colors">Terms & Condition</a></li>
               <li><a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#privacy-choices" className="hover:text-white transition-colors">Your Privacy Choices</a></li>
+              <li><a href="#wa-health-policy" className="hover:text-white transition-colors">WA Health Policy</a></li>
             </ul>
           </div>
 
@@ -100,12 +102,12 @@ export const Footer: React.FC = () => {
         {/* Disclaimer & Bottom */}
         <div className="space-y-8">
           <div className="bg-white/5 rounded-xl p-6 border border-white/5">
-            <h5 className="text-white font-semibold mb-2 text-sm">Disclaimer</h5>
+            <h5 className="text-white font-semibold mb-2 text-sm">Ad Disclosure</h5>
             <p className="text-xs text-gray-500 leading-relaxed">
-              Autoclaimfiling.online is a marketing service connecting consumers with legal and insurance professionals. We are not a law firm, do not provide legal advice, and do not make decisions regarding claims. All case evaluations are performed by third-party professionals. Results are not guaranteed and past performance does not predict future outcomes.
+              ADVERTISEMENT: This website is a paid advertisement for a joint marketing program. Autoclaimfiling.online is not a law firm, a lawyer referral service, or an insurance provider. We do not provide legal advice, medical advice, or insurance adjusting services. This advertisement is not a guarantee, warranty, or prediction regarding the outcome of your legal matter. Every case is different; the outcome depends on the unique laws, facts, and circumstances of each case. Hiring an attorney is an important decision that should not be based solely on advertising. You may request free information about an attorney’s background and experience. Individuals appearing on this website may be paid actors or spokespersons and not actual lawyers or clients. Any depictions of accidents or consultations are dramatizations. Use of this site, our forms, or our phone lines does not create an attorney-client relationship.
             </p>
             <p className="text-xs text-gray-500 leading-relaxed mt-4">
-              As an independent service, we have no ties to any insurance companies. We are a lead generation marketing company which generate MVA leads for a panel of Third Party companies.
+              FOR NORTH CAROLINA RESIDENTS: Autoclaimfiling.online is a legal advertising service. We do not offer legal services or representation. Legal services are available only through independent attorneys licensed in North Carolina. Contacting us does not create an attorney-client relationship.
             </p>
           </div>
 
