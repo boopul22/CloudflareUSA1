@@ -1,28 +1,64 @@
 import React, { useState } from 'react';
 import { Button } from './ui/Button';
-import { ArrowRight, MessageSquare, User, Phone, Mail, ShieldCheck, Clock, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { ArrowRight, MessageSquare, User, Phone, Mail, ShieldCheck, Clock, CheckCircle, AlertCircle, Loader2, MapPin } from 'lucide-react';
 
 export const ContactForm: React.FC = () => {
   const [formState, setFormState] = useState({
     name: '',
     phone: '',
     email: '',
+    state: '',
     message: ''
   });
+
+  const [consentState, setConsentState] = useState({
+    mainConsent: false,
+    sensitiveDataConsent: false, // For Group B (CA, TX, CO)
+    waHealthConsent: false       // For Group C (WA)
+  });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  // Determine Consent Group based on State
+  const getConsentGroup = (stateCode: string) => {
+    const groupB = ['CA', 'TX', 'CO'];
+    const groupC = ['WA'];
+
+    if (groupC.includes(stateCode)) return 'C'; // WA
+    if (groupB.includes(stateCode)) return 'B'; // CA, TX, CO
+    return 'A'; // Everyone else
+  };
+
+  const currentGroup = getConsentGroup(formState.state);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validation
+    if (!consentState.mainConsent) {
+      alert("You must agree to the Terms & Privacy Policy to proceed.");
+      return;
+    }
+    if (currentGroup === 'C' && !consentState.waHealthConsent) {
+      alert("Washington residents must authorize the collection of health data to proceed.");
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
     try {
       const formData = {
-        name: formState.name,
-        phone: formState.phone,
-        email: formState.email,
-        message: formState.message
+        ...formState,
+        timestamp: new Date().toISOString(),
+        consent_group: currentGroup,
+        consents: {
+          tcpa: consentState.mainConsent,
+          sensitive_data: consentState.sensitiveDataConsent,
+          wa_health: consentState.waHealthConsent
+        },
+        user_agent: navigator.userAgent
       };
 
       // Send to both Email (FormSubmit.co) and Google Sheets in parallel
@@ -56,7 +92,8 @@ export const ContactForm: React.FC = () => {
 
       if (emailSuccess) {
         setSubmitStatus('success');
-        setFormState({ name: '', phone: '', email: '', message: '' });
+        setFormState({ name: '', phone: '', email: '', state: '', message: '' });
+        setConsentState({ mainConsent: false, sensitiveDataConsent: false, waHealthConsent: false });
       } else {
         setSubmitStatus('error');
       }
@@ -67,9 +104,33 @@ export const ContactForm: React.FC = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setConsentState(prev => ({ ...prev, [e.target.name]: e.target.checked }));
+  };
+
+  const usStates = [
+    { code: 'AL', name: 'Alabama' }, { code: 'AK', name: 'Alaska' }, { code: 'AZ', name: 'Arizona' },
+    { code: 'AR', name: 'Arkansas' }, { code: 'CA', name: 'California' }, { code: 'CO', name: 'Colorado' },
+    { code: 'CT', name: 'Connecticut' }, { code: 'DE', name: 'Delaware' }, { code: 'FL', name: 'Florida' },
+    { code: 'GA', name: 'Georgia' }, { code: 'HI', name: 'Hawaii' }, { code: 'ID', name: 'Idaho' },
+    { code: 'IL', name: 'Illinois' }, { code: 'IN', name: 'Indiana' }, { code: 'IA', name: 'Iowa' },
+    { code: 'KS', name: 'Kansas' }, { code: 'KY', name: 'Kentucky' }, { code: 'LA', name: 'Louisiana' },
+    { code: 'ME', name: 'Maine' }, { code: 'MD', name: 'Maryland' }, { code: 'MA', name: 'Massachusetts' },
+    { code: 'MI', name: 'Michigan' }, { code: 'MN', name: 'Minnesota' }, { code: 'MS', name: 'Mississippi' },
+    { code: 'MO', name: 'Missouri' }, { code: 'MT', name: 'Montana' }, { code: 'NE', name: 'Nebraska' },
+    { code: 'NV', name: 'Nevada' }, { code: 'NH', name: 'New Hampshire' }, { code: 'NJ', name: 'New Jersey' },
+    { code: 'NM', name: 'New Mexico' }, { code: 'NY', name: 'New York' }, { code: 'NC', name: 'North Carolina' },
+    { code: 'ND', name: 'North Dakota' }, { code: 'OH', name: 'Ohio' }, { code: 'OK', name: 'Oklahoma' },
+    { code: 'OR', name: 'Oregon' }, { code: 'PA', name: 'Pennsylvania' }, { code: 'RI', name: 'Rhode Island' },
+    { code: 'SC', name: 'South Carolina' }, { code: 'SD', name: 'South Dakota' }, { code: 'TN', name: 'Tennessee' },
+    { code: 'TX', name: 'Texas' }, { code: 'UT', name: 'Utah' }, { code: 'VT', name: 'Vermont' },
+    { code: 'VA', name: 'Virginia' }, { code: 'WA', name: 'Washington' }, { code: 'WV', name: 'West Virginia' },
+    { code: 'WI', name: 'Wisconsin' }, { code: 'WY', name: 'Wyoming' }, { code: 'DC', name: 'District of Columbia' }
+  ];
 
   return (
     <section id="contact" className="relative bg-brand-dark overflow-hidden">
@@ -208,6 +269,26 @@ export const ContactForm: React.FC = () => {
                   </div>
                 </div>
 
+                {/* State Selection */}
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <MapPin className="h-5 w-5 text-gray-400 group-focus-within:text-brand-primary transition-colors" />
+                  </div>
+                  <select
+                    name="state"
+                    id="state"
+                    required
+                    className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all outline-none bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400 appearance-none"
+                    value={formState.state}
+                    onChange={handleChange}
+                  >
+                    <option value="" disabled>Select Your State</option>
+                    {usStates.map((state) => (
+                      <option key={state.code} value={state.code}>{state.name}</option>
+                    ))}
+                  </select>
+                </div>
+
                 {/* Message Field */}
                 <div className="relative group">
                   <div className="absolute top-3 left-0 pl-3 pointer-events-none">
@@ -225,13 +306,77 @@ export const ContactForm: React.FC = () => {
                 </div>
               </div>
 
+              {/* Legal Consents - Conditioned by State */}
+              <div className="space-y-4 pt-2">
+
+                {/* 1. Main Consent (Mandatory for ALL) */}
+                <div className="flex items-start gap-3">
+                  <div className="flex h-6 items-center">
+                    <input
+                      id="mainConsent"
+                      name="mainConsent"
+                      type="checkbox"
+                      required
+                      className="h-4 w-4 rounded border-gray-300 text-brand-primary focus:ring-brand-primary cursor-pointer"
+                      checked={consentState.mainConsent}
+                      onChange={handleCheckboxChange}
+                    />
+                  </div>
+                  <div className="text-xs text-gray-500 leading-snug">
+                    By clicking [Submit], I agree to the <a href="#terms" className="underline hover:text-brand-primary">Terms of Service</a> and <a href="#privacy" className="underline hover:text-brand-primary">Privacy Policy</a>.
+                    I provide my express written consent for Autoclaimfiling.online and its <a href="#partners" className="underline hover:text-brand-primary">Marketing Partners</a> to contact me via live calls, automated dialing systems, and text messages at the number provided.
+                    I understand that my consent is not a condition of purchase and that calling or submitting this form does not create an attorney-client relationship.
+                  </div>
+                </div>
+
+                {/* 2. Sensitive Data Consent (Optional - Only for CA, TX, CO) */}
+                {currentGroup === 'B' && (
+                  <div className="flex items-start gap-3 bg-yellow-50/50 p-2 rounded-lg border border-yellow-100">
+                    <div className="flex h-6 items-center">
+                      <input
+                        id="sensitiveDataConsent"
+                        name="sensitiveDataConsent"
+                        type="checkbox"
+                        className="h-4 w-4 rounded border-gray-300 text-brand-primary focus:ring-brand-primary cursor-pointer"
+                        checked={consentState.sensitiveDataConsent}
+                        onChange={handleCheckboxChange}
+                      />
+                    </div>
+                    <div className="text-xs text-gray-600 leading-snug">
+                      <strong>Sensitive Data Consent:</strong> I expressly consent to the collection and sharing of my sensitive personal information, including details of my injuries and medical status,
+                      with Autoclaimfiling.online’s marketing partners as described in the <a href="#privacy" className="underline hover:text-brand-primary">Privacy Policy</a>.
+                      I understand I can withdraw this consent at any time.
+                    </div>
+                  </div>
+                )}
+
+                {/* 3. WA Health Data Consent (Mandatory - Only for WA) */}
+                {currentGroup === 'C' && (
+                  <div className="flex items-start gap-3 bg-brand-primary/5 p-2 rounded-lg border border-brand-primary/10">
+                    <div className="flex h-6 items-center">
+                      <input
+                        id="waHealthConsent"
+                        name="waHealthConsent"
+                        type="checkbox"
+                        required
+                        className="h-4 w-4 rounded border-gray-300 text-brand-primary focus:ring-brand-primary cursor-pointer"
+                        checked={consentState.waHealthConsent}
+                        onChange={handleCheckboxChange}
+                      />
+                    </div>
+                    <div className="text-xs text-gray-600 leading-snug">
+                      <strong>Washington Health Data Consent:</strong> I provide my authorization for the collection and sharing of my consumer health data as defined by the <a href="#wa-health-policy" className="underline hover:text-brand-primary">WA Health Policy</a>.
+                      I acknowledge that my health data will be shared with marketing partners to facilitate my request for legal assistance.
+                    </div>
+                  </div>
+                )}
+              </div>
+
               {/* Honeypot for Spam Protection (FormSubmit.co) */}
               <input type="text" name="_honey" style={{ display: 'none' }} />
 
               {/* Disable Captcha to improve conversion (optional, can be enabled if spam is high) */}
               <input type="hidden" name="_captcha" value="false" />
-
-
 
               <Button
                 type="submit"
@@ -252,7 +397,7 @@ export const ContactForm: React.FC = () => {
                 )}
               </Button>
               <p className="text-xs text-center text-gray-400 mt-4 leading-relaxed px-4">
-                Your information is 100% secure. By submitting, you agree to our Terms & Privacy Policy.
+                Your information is 100% secure.
               </p>
             </form>
           </div>

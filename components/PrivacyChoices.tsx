@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FinalCTA } from './FinalCTA';
+import { Loader2 } from 'lucide-react';
 
 export const PrivacyChoices: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -14,6 +15,8 @@ export const PrivacyChoices: React.FC = () => {
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -30,11 +33,58 @@ export const PrivacyChoices: React.FC = () => {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Privacy Choices Submitted:', formData);
-        setSubmitted(true);
-        // Here you would typically send the data to your backend
+        setIsSubmitting(true);
+        setSubmitError(false);
+
+        try {
+            // Prepare payload
+            const payload = {
+                ...formData,
+                type: 'PRIVACY_OPT_OUT',
+                timestamp: new Date().toISOString()
+            };
+
+            // Send to same endpoints as ContactForm
+            const [emailResponse, sheetsResponse] = await Promise.allSettled([
+                // Email notification via FormSubmit.co
+                fetch('https://formsubmit.co/ajax/cee86aeecedf66e1d57f7ceb2e49c07b', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        ...payload,
+                        _subject: 'PRIVACY OPT-OUT REQUEST - Autoclaimfiling.online',
+                        _template: 'table'
+                    })
+                }),
+                // Google Sheets lead tracking (using same script, assuming it handles generic JSON)
+                fetch('https://script.google.com/macros/s/AKfycbwDKZZDO6vGNwL-x_I-v15EzQCrCdeEgsvRee2wdG4H96XiuTqxG7-zfuaTF4kV3FTP0g/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+            ]);
+
+            const emailSuccess = emailResponse.status === 'fulfilled' && emailResponse.value.ok;
+
+            if (emailSuccess) {
+                setSubmitted(true);
+            } else {
+                setSubmitError(true);
+            }
+
+        } catch (error) {
+            setSubmitError(true);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (submitted) {
@@ -48,7 +98,12 @@ export const PrivacyChoices: React.FC = () => {
                                 We have received your request to opt-out. Your information has been added to our suppression list, and we will no longer share your data with marketing partners.
                             </p>
                             <button
-                                onClick={() => setSubmitted(false)}
+                                onClick={() => {
+                                    setSubmitted(false); setFormData({
+                                        fullName: '', email: '', phone: '', state: '',
+                                        doNotSell: false, limitSensitive: false, optOutAds: false, deleteRequest: false
+                                    })
+                                }}
                                 className="mt-6 px-6 py-2 bg-brand-primary text-white rounded-lg hover:bg-brand-primaryHover transition-colors"
                             >
                                 Return to Form
@@ -95,6 +150,12 @@ export const PrivacyChoices: React.FC = () => {
                         </p>
 
                         <form onSubmit={handleSubmit} className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100 space-y-6">
+
+                            {submitError && (
+                                <div className="p-4 bg-red-50 text-red-700 rounded-lg border border-red-200">
+                                    Something went wrong submitting your request. Please try again or email us directly.
+                                </div>
+                            )}
 
                             <div>
                                 <h3 className="text-lg font-bold text-brand-dark mb-4">Step 1: Your Information</h3>
@@ -218,9 +279,15 @@ export const PrivacyChoices: React.FC = () => {
 
                             <button
                                 type="submit"
-                                className="w-full bg-brand-primary text-white font-bold text-lg py-4 rounded-xl hover:bg-brand-primaryHover transition-all shadow-lg hover:shadow-brand-primary/30 transform hover:-translate-y-0.5"
+                                disabled={isSubmitting}
+                                className="w-full bg-brand-primary text-white font-bold text-lg py-4 rounded-xl hover:bg-brand-primaryHover transition-all shadow-lg hover:shadow-brand-primary/30 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
                             >
-                                SUBMIT PRIVACY REQUEST
+                                {isSubmitting ? (
+                                    <>
+                                        <Loader2 className="animate-spin mr-2" size={20} />
+                                        Submitting...
+                                    </>
+                                ) : 'SUBMIT PRIVACY REQUEST'}
                             </button>
 
                         </form>
