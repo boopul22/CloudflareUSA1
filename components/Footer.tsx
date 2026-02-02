@@ -57,6 +57,7 @@ export const Footer: React.FC = () => {
               <li><a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
               <li><a href="#privacy-choices" className="hover:text-white transition-colors">Your Privacy Choices</a></li>
               <li><a href="#wa-health-policy" className="hover:text-white transition-colors">WA Health Policy</a></li>
+              <li><a href="#partners" className="hover:text-white transition-colors">Partners & Sponsors</a></li>
             </ul>
           </div>
 

@@ -12,6 +12,7 @@ import { Terms } from './components/Terms';
 import { Privacy } from './components/Privacy';
 import { PrivacyChoices } from './components/PrivacyChoices';
 import { WaHealthPolicy } from './components/WaHealthPolicy';
+import { Partners } from './components/Partners';
 
 const App: React.FC = () => {
   const [route, setRoute] = useState(window.location.hash);
@@ -27,6 +28,7 @@ const App: React.FC = () => {
     if (route === '#privacy') return <Privacy />;
     if (route === '#privacy-choices') return <PrivacyChoices />;
     if (route === '#wa-health-policy') return <WaHealthPolicy />;
+    if (route === '#partners') return <Partners />;
 
     // Default Landing Page
     return (
