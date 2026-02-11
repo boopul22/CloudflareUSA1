@@ -58,8 +58,8 @@ export const Partners: React.FC = () => {
                         <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">Contact Us</h2>
                         <div className="bg-gray-50 rounded-lg p-5 border border-gray-100">
                             <p className="mb-2"><strong>Autoclaimfiling.online</strong></p>
-                            <p className="mb-1">Email: <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a></p>
-                            <p>Address: Florida, USA</p>
+                            <p className="mb-1">Email: <a href="mailto:admin@evolvemarketinguk.com" className="text-brand-primary hover:underline">admin@evolvemarketinguk.com</a></p>
+                            <p>Address: C/O Nra Accountancy, Arrow Mill, Queensway, Rochdale, Lancashire, England, OL11 2YW</p>
                         </div>
                     </section>
                 </div>

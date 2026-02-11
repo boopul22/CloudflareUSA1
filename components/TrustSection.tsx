@@ -32,29 +32,9 @@ export const TrustSection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
 
-            {/* Floating Badge 1 - Team */}
-            <div className="absolute -bottom-6 -right-0 lg:bottom-8 lg:-right-8 bg-white p-4 lg:p-5 rounded-xl shadow-xl z-20 max-w-[200px] lg:max-w-xs border border-gray-100 animate-fade-in-up">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="bg-green-100 p-2.5 rounded-full">
-                  <UserCheck className="text-green-600 w-5 h-5" />
-                </div>
-                <span className="font-bold text-gray-900 text-sm lg:text-base">Expert Team</span>
-              </div>
-              <p className="text-xs text-gray-600 leading-snug">Certified specialists handling 50,000+ cases.</p>
-            </div>
 
-            {/* Floating Badge 2 - Experience */}
-            <div className="absolute top-4 lg:top-8 -left-2 lg:-left-8 bg-white p-3 lg:p-4 rounded-xl shadow-xl z-20 border border-gray-100 animate-fade-in-down scale-90 lg:scale-100 origin-top-left">
-              <div className="flex items-center gap-3">
-                <div className="bg-brand-primary p-2.5 rounded-full text-white font-bold text-lg">
-                  15+
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-gray-900 text-sm">Years of</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wide">Excellence</span>
-                </div>
-              </div>
-            </div>
+
+
           </div>
 
           {/* Text Side */}
@@ -89,15 +69,7 @@ export const TrustSection: React.FC = () => {
               ))}
             </div>
 
-            {/* Logos Strip */}
-            <div className="border-t border-gray-100 pt-8">
-              <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-4">We work with all major providers</p>
-              <div className="flex flex-wrap gap-4 lg:gap-6 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-                <div className="flex items-center gap-2 font-bold text-lg lg:text-xl text-gray-600"><Building2 size={24} /> InsureCo</div>
-                <div className="flex items-center gap-2 font-bold text-lg lg:text-xl text-gray-600"><Building2 size={24} /> ShieldLife</div>
-                <div className="flex items-center gap-2 font-bold text-lg lg:text-xl text-gray-600 hidden md:flex"><Building2 size={24} /> SafeDrive</div>
-              </div>
-            </div>
+
           </div>
 
         </div>

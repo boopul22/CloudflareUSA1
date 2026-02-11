@@ -80,7 +80,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-xs uppercase tracking-wider text-gray-500 mb-1">Email</span>
-                  <a href="mailto:autoclaimfiling@gmail.com" className="text-white font-medium hover:text-brand-primary transition-colors cursor-pointer break-all">autoclaimfiling@gmail.com</a>
+                  <a href="mailto:admin@evolvemarketinguk.com" className="text-white font-medium hover:text-brand-primary transition-colors cursor-pointer break-all">admin@evolvemarketinguk.com</a>
                 </div>
               </li>
               <li className="flex items-start gap-4 group">
@@ -89,7 +89,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-xs uppercase tracking-wider text-gray-500 mb-1">Address</span>
-                  <span className="text-gray-300">Florida, USA</span>
+                  <span className="text-gray-300">C/O Nra Accountancy, Arrow Mill, Queensway, Rochdale, Lancashire, England, OL11 2YW</span>
                 </div>
               </li>
             </ul>
@@ -105,7 +105,7 @@ export const Footer: React.FC = () => {
           <div className="bg-white/5 rounded-xl p-6 border border-white/5">
             <h5 className="text-white font-semibold mb-2 text-sm">Ad Disclosure</h5>
             <p className="text-xs text-gray-500 leading-relaxed">
-              ADVERTISEMENT: This website is a paid advertisement for a joint marketing program. Autoclaimfiling.online is not a law firm, a lawyer referral service, or an insurance provider. We do not provide legal advice, medical advice, or insurance adjusting services. This advertisement is not a guarantee, warranty, or prediction regarding the outcome of your legal matter. Every case is different; the outcome depends on the unique laws, facts, and circumstances of each case. Hiring an attorney is an important decision that should not be based solely on advertising. You may request free information about an attorney’s background and experience. Individuals appearing on this website may be paid actors or spokespersons and not actual lawyers or clients. Any depictions of accidents or consultations are dramatizations. Use of this site, our forms, or our phone lines does not create an attorney-client relationship.
+              ADVERTISEMENT: This website is a paid advertisement for a joint marketing program, operated by Evolve Web Marketing LTD (Company No. 15814738). Autoclaimfiling.online is not a law firm, a lawyer referral service, or an insurance provider. We do not provide legal advice, medical advice, or insurance adjusting services. This advertisement is not a guarantee, warranty, or prediction regarding the outcome of your legal matter. Every case is different; the outcome depends on the unique laws, facts, and circumstances of each case. Hiring an attorney is an important decision that should not be based solely on advertising. You may request free information about an attorney’s background and experience. Individuals appearing on this website may be paid actors or spokespersons and not actual lawyers or clients. Any depictions of accidents or consultations are dramatizations. Use of this site, our forms, or our phone lines does not create an attorney-client relationship.
             </p>
             <p className="text-xs text-gray-500 leading-relaxed mt-4">
               FOR NORTH CAROLINA RESIDENTS: Autoclaimfiling.online is a legal advertising service. We do not offer legal services or representation. Legal services are available only through independent attorneys licensed in North Carolina. Contacting us does not create an attorney-client relationship.
