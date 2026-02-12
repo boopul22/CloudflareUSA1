@@ -36,7 +36,7 @@ FormSubmit.co requires a **one-time email activation** before it will deliver su
 Add the AJAX endpoint to your `.env.local`:
 ```
 VITE_FORMSUBMIT_URL=https://formsubmit.co/ajax/autoclaimfiling@gmail.com
-VITE_FORMSUBMIT_CC=immaculatemedia2018@gmail.com
+VITE_FORMSUBMIT_CC=autoclaimfiling@gmail.com
 ```
 
 You can also use the random hash FormSubmit provides for email privacy:
@@ -55,7 +55,7 @@ The contact form uses these FormSubmit.co features (configured as hidden fields 
 | `_replyto` | User's email | Reply directly to the lead |
 | `_autoresponse` | Custom message | Automatic confirmation sent to user |
 | `_honey` | Empty (hidden) | Honeypot spam protection |
-| `_cc` | `immaculatemedia2018@gmail.com` | CC notifications to additional email |
+| `_cc` | `autoclaimfiling@gmail.com` | CC notifications to additional email |
 | `_captcha` | `false` | Disabled reCAPTCHA for seamless AJAX flow |
 
 > **📝 Write your endpoint here:**
@@ -461,7 +461,7 @@ Before going live, make sure you've completed:
 | Service | Env Variable | Your URL |
 |---------|-------------|----------|
 | FormSubmit.co | `VITE_FORMSUBMIT_URL` | `https://formsubmit.co/ajax/autoclaimfiling@gmail.com` |
-| FormSubmit CC | `VITE_FORMSUBMIT_CC` | `immaculatemedia2018@gmail.com` |
+| FormSubmit CC | `VITE_FORMSUBMIT_CC` | `autoclaimfiling@gmail.com` |
 | Google Sheets | `VITE_GOOGLE_SHEET_URL` | `https://script.google.com/macros/s/_______________/exec` |
 | Activation Page | — | `public/activate-formsubmit.html` |
 | FormSubmit Docs | — | `https://formsubmit.co/documentation` |

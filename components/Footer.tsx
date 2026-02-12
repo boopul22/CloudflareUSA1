@@ -80,7 +80,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-xs uppercase tracking-wider text-gray-500 mb-1">Email</span>
-                  <a href="mailto:immaculatemedia2018@gmail.com" className="text-white font-medium hover:text-brand-primary transition-colors cursor-pointer break-all">immaculatemedia2018@gmail.com</a>
+                  <a href="mailto:autoclaimfiling@gmail.com" className="text-white font-medium hover:text-brand-primary transition-colors cursor-pointer break-all">autoclaimfiling@gmail.com</a>
                 </div>
               </li>
               <li className="flex items-start gap-4 group">
