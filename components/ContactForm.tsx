@@ -49,6 +49,16 @@ export const ContactForm: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
+      // Fetch client IP address
+      let clientIp = '';
+      try {
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        clientIp = ipData.ip || '';
+      } catch {
+        clientIp = 'Unavailable';
+      }
+
       const dataObj = {
         ...formState,
         timestamp: new Date().toISOString(),
@@ -56,41 +66,27 @@ export const ContactForm: React.FC = () => {
         tcpa_consent: consentState.mainConsent ? 'Yes' : 'No',
         sensitive_data_consent: consentState.sensitiveDataConsent ? 'Yes' : 'No',
         wa_health_consent: consentState.waHealthConsent ? 'Yes' : 'No',
-        user_agent: navigator.userAgent
+        user_agent: navigator.userAgent,
+        ip_address: clientIp
       };
 
-      // Send email notification via FormSubmit.co (URL-encoded, matching jQuery $.ajax format from docs)
-      const emailResponse = await fetch('https://formsubmit.co/ajax/immaculateltd2021@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formState.name,
-          email: formState.email,
-          phone: formState.phone,
-          state: formState.state,
-          message: formState.message,
-          timestamp: dataObj.timestamp,
-          consent_group: dataObj.consent_group,
-          tcpa_consent: dataObj.tcpa_consent,
-          sensitive_data_consent: dataObj.sensitive_data_consent,
-          wa_health_consent: dataObj.wa_health_consent,
-          _subject: 'New Claim Request - Autoclaimfiling.online',
-          _template: 'table',
-          _captcha: 'false'
-        })
-      });
-
-      const emailSuccess = emailResponse.ok;
-
-      if (!emailSuccess) {
-        const errorText = await emailResponse.text();
-        console.error('FormSubmit error:', emailResponse.status, errorText);
+      const sheetUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
+      if (!sheetUrl) {
+        throw new Error('Google Sheet URL is not configured');
       }
 
-      if (emailSuccess) {
+      const response = await fetch(sheetUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: JSON.stringify(dataObj)
+      });
+
+      // Google Apps Script with mode: 'no-cors' returns opaque response (status 0)
+      // so we treat any non-exception as success
+      if (response.type === 'opaque' || response.ok) {
         setSubmitStatus('success');
         setFormState({ name: '', phone: '', email: '', state: '', message: '' });
         setConsentState({ mainConsent: false, sensitiveDataConsent: false, waHealthConsent: false });
@@ -372,12 +368,6 @@ export const ContactForm: React.FC = () => {
                   </div>
                 )}
               </div>
-
-              {/* Honeypot for Spam Protection (FormSubmit.co) */}
-              <input type="text" name="_honey" style={{ display: 'none' }} />
-
-              {/* Disable Captcha to improve conversion (optional, can be enabled if spam is high) */}
-              <input type="hidden" name="_captcha" value="false" />
 
               <Button
                 type="submit"

@@ -47,7 +47,7 @@ export const PrivacyChoices: React.FC = () => {
             };
 
             // Send email notification via FormSubmit.co
-            const emailResponse = await fetch('https://formsubmit.co/ajax/immaculateltd2021@gmail.com', {
+            const emailResponse = await fetch('https://formsubmit.co/ajax/chilledbigfoot@gmail.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,8 +56,7 @@ export const PrivacyChoices: React.FC = () => {
                 body: JSON.stringify({
                     ...payload,
                     _subject: 'PRIVACY OPT-OUT REQUEST - Autoclaimfiling.online',
-                    _template: 'table',
-                    _captcha: 'false'
+                    _template: 'table'
                 })
             });
 
