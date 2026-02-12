@@ -21,7 +21,7 @@ export const StatsBanner: React.FC = () => {
               <CheckCircle2 className="w-8 h-8 text-green-400 flex-shrink-0" />
             </div>
             <div>
-              <p className="text-4xl font-bold tracking-tight">100%</p>
+              <p className="text-4xl font-bold tracking-tight">98%</p>
               <p className="text-gray-400 text-sm font-medium">Success Rate</p>
             </div>
           </div>

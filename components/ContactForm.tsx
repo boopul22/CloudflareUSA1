@@ -49,46 +49,46 @@ export const ContactForm: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      const formData = {
+      const dataObj = {
         ...formState,
         timestamp: new Date().toISOString(),
         consent_group: currentGroup,
-        consents: {
-          tcpa: consentState.mainConsent,
-          sensitive_data: consentState.sensitiveDataConsent,
-          wa_health: consentState.waHealthConsent
-        },
+        tcpa_consent: consentState.mainConsent ? 'Yes' : 'No',
+        sensitive_data_consent: consentState.sensitiveDataConsent ? 'Yes' : 'No',
+        wa_health_consent: consentState.waHealthConsent ? 'Yes' : 'No',
         user_agent: navigator.userAgent
       };
 
-      // Send to both Email (FormSubmit.co) and Google Sheets in parallel
-      const [emailResponse, sheetsResponse] = await Promise.allSettled([
-        // Email notification via FormSubmit.co
-        fetch('https://formsubmit.co/ajax/cee86aeecedf66e1d57f7ceb2e49c07b', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            ...formData,
-            _subject: 'New Claim Request - Autoclaimfiling.online',
-            _template: 'table'
-          })
-        }),
-        // Google Sheets lead tracking
-        fetch('https://script.google.com/macros/s/AKfycbwDKZZDO6vGNwL-x_I-v15EzQCrCdeEgsvRee2wdG4H96XiuTqxG7-zfuaTF4kV3FTP0g/exec', {
-          method: 'POST',
-          mode: 'no-cors', // Required for Google Apps Script
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
+      // Send email notification via FormSubmit.co (URL-encoded, matching jQuery $.ajax format from docs)
+      const emailResponse = await fetch('https://formsubmit.co/ajax/immaculateltd2021@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone,
+          state: formState.state,
+          message: formState.message,
+          timestamp: dataObj.timestamp,
+          consent_group: dataObj.consent_group,
+          tcpa_consent: dataObj.tcpa_consent,
+          sensitive_data_consent: dataObj.sensitive_data_consent,
+          wa_health_consent: dataObj.wa_health_consent,
+          _subject: 'New Claim Request - Autoclaimfiling.online',
+          _template: 'table',
+          _captcha: 'false'
         })
-      ]);
+      });
 
-      // Check if at least email was sent successfully
-      const emailSuccess = emailResponse.status === 'fulfilled' && emailResponse.value.ok;
+      const emailSuccess = emailResponse.ok;
+
+      if (!emailSuccess) {
+        const errorText = await emailResponse.text();
+        console.error('FormSubmit error:', emailResponse.status, errorText);
+      }
 
       if (emailSuccess) {
         setSubmitStatus('success');
@@ -98,6 +98,7 @@ export const ContactForm: React.FC = () => {
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -397,7 +398,7 @@ export const ContactForm: React.FC = () => {
                 )}
               </Button>
               <p className="text-xs text-center text-gray-400 mt-4 leading-relaxed px-4">
-                Your information is 100% secure.
+                Your information is fully secure.
               </p>
             </form>
           </div>

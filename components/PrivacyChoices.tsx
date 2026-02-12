@@ -46,33 +46,22 @@ export const PrivacyChoices: React.FC = () => {
                 timestamp: new Date().toISOString()
             };
 
-            // Send to same endpoints as ContactForm
-            const [emailResponse, sheetsResponse] = await Promise.allSettled([
-                // Email notification via FormSubmit.co
-                fetch('https://formsubmit.co/ajax/cee86aeecedf66e1d57f7ceb2e49c07b', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        ...payload,
-                        _subject: 'PRIVACY OPT-OUT REQUEST - Autoclaimfiling.online',
-                        _template: 'table'
-                    })
-                }),
-                // Google Sheets lead tracking (using same script, assuming it handles generic JSON)
-                fetch('https://script.google.com/macros/s/AKfycbwDKZZDO6vGNwL-x_I-v15EzQCrCdeEgsvRee2wdG4H96XiuTqxG7-zfuaTF4kV3FTP0g/exec', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
+            // Send email notification via FormSubmit.co
+            const emailResponse = await fetch('https://formsubmit.co/ajax/immaculateltd2021@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    ...payload,
+                    _subject: 'PRIVACY OPT-OUT REQUEST - Autoclaimfiling.online',
+                    _template: 'table',
+                    _captcha: 'false'
                 })
-            ]);
+            });
 
-            const emailSuccess = emailResponse.status === 'fulfilled' && emailResponse.value.ok;
+            const emailSuccess = emailResponse.ok;
 
             if (emailSuccess) {
                 setSubmitted(true);
