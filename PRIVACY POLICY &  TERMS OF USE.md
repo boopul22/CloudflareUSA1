@@ -16,7 +16,7 @@ Audio Recordings: We record and/or monitor all inbound and outbound calls. By ca
 Under the California Consumer Privacy Act (CCPA/CPRA) and the Colorado Privacy Act (CPA), residents have the right to opt-out of the “sale” or “sharing” of their personal information.
 Notice of Sale/Sharing: Auto File Claim is a marketing platform. We share the personal information you provide (including name, contact details, and accident information) with our Marketing Partners in exchange for an administrative or marketing fee. Under certain state laws, this transfer is classified as a “sale” or “sharing” of information.
 Right to Opt-Out: You have the right to direct us not to sell or share your information. Please Note: If you exercise this right, we will be unable to process your claim inquiry or connect you with a Marketing Partner, as our service relies on this data transfer.
-How to Opt-Out: To exercise this right, please visit our [Opt-Out Form Link] or email us at [Insert Email] with the subject line "Opt-Out Request."
+How to Opt-Out: To exercise this right, please visit our [Opt-Out Form Link] or email us at immaculatemedia2018@gmail.com with the subject line "Opt-Out Request."
 5. USE AND SHARING OF DATA (MARKETING MODEL)
 We share your information with our Third-Party Marketing Partners.
 Administrative Fees: These partners pay us an administrative, marketing, or technology fee to receive inquiries. We do not receive a percentage of any legal recovery or insurance payout.
@@ -30,7 +30,7 @@ We utilize industry-standard TLS encryption for data in transit. No transmission
 9. MINORS
 Our services are not intended for individuals under the age of eighteen (18).
 10. CONTACT US
-To exercise your privacy rights or opt-out, please contact: Email: [Insert Email Address] Address: [Insert Physical Address]
+To exercise your privacy rights or opt-out, please contact: Email: immaculatemedia2018@gmail.com Address: [Insert Physical Address]
 
 
 
@@ -88,10 +88,10 @@ Washington residents have the following specific rights:
 Right to Access: Confirm if we are processing your health data and obtain a list of third parties with whom we have shared it.
 Right to Delete: Request the deletion of your health data. We will also notify any third parties with whom we shared your data to honor this request.
 Right to Withdraw Consent: Revoke your consent for the future processing of your health data.
-How to Exercise Your Rights: Please submit your request to [Insert Email] with the subject line "Washington Privacy Request."
+How to Exercise Your Rights: Please submit your request to immaculatemedia2018@gmail.com with the subject line "Washington Privacy Request."
 6. Appeals Process
 If we deny your request to exercise a right under the MHMDA, you have the right to appeal our decision within 30 days.
-To appeal, please email [Insert Email] with the subject line “Privacy Appeal.”
+To appeal, please email immaculatemedia2018@gmail.com with the subject line “Privacy Appeal.”
 We will respond to your appeal within 45 days. If your appeal is denied, you may contact the Washington State Attorney General at www.atg.wa.gov.
 
 
@@ -148,9 +148,9 @@ Mandatory Arbitration: Any dispute arising out of these Terms or the Services sh
 Class Action Waiver: You agree that any proceedings will be conducted solely on an individual basis. You will not seek to have any dispute heard as a class action or representative proceeding.
 Time Limit: Any claim must be filed within one (1) year after the cause of action accrues, or it is permanently barred.
 16. ADA Compliance
-We are committed to accessibility. If you have difficulty navigating our content, please contact us at [Insert Accessibility Email].
+We are committed to accessibility. If you have difficulty navigating our content, please contact us at immaculatemedia2018@gmail.com.
 17. Contact Us
-Auto File Claim [Insert Address] [Insert Email] [Insert Phone Number]
+Auto File Claim [Insert Address] immaculatemedia2018@gmail.com [Insert Phone Number]
 
 
 
@@ -214,9 +214,9 @@ Step 2: Select Your Request
 We honor Global Privacy Control (GPC) signals. If your browser or device sends a GPC signal, we will automatically opt you out of the "sale" and "sharing" of your personal information for that specific session without you needing to fill out the form above.
 4. OTHER CONTACT METHODS
 If you have difficulty using the form, you may also submit your request via:
-Email: privacy@autofileclaim.com
+Email: immaculatemedia2018@gmail.com
 5. AUTHORIZED AGENTS
-If you are submitting this request on behalf of another person, you must provide written proof of your authority (such as a power of attorney) to privacy@autofileclaim.com before we can process the request.
+If you are submitting this request on behalf of another person, you must provide written proof of your authority (such as a power of attorney) to immaculatemedia2018@gmail.com before we can process the request.
 
 
 

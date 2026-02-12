@@ -71,22 +71,71 @@ export const ContactForm: React.FC = () => {
       };
 
       const sheetUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
-      if (!sheetUrl) {
-        throw new Error('Google Sheet URL is not configured');
+      const formSubmitUrl = import.meta.env.VITE_FORMSUBMIT_URL;
+      const formSubmitCc = import.meta.env.VITE_FORMSUBMIT_CC;
+
+      // Build parallel submission promises
+      const submissions: Promise<Response>[] = [];
+
+      // 1. Google Sheets submission
+      if (sheetUrl) {
+        submissions.push(
+          fetch(sheetUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(dataObj)
+          })
+        );
       }
 
-      const response = await fetch(sheetUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain',
-        },
-        body: JSON.stringify(dataObj)
+      // 2. FormSubmit.co email notification (AJAX endpoint)
+      // Docs: https://formsubmit.co/documentation
+      if (formSubmitUrl) {
+        submissions.push(
+          fetch(formSubmitUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              name: formState.name,
+              phone: formState.phone,
+              email: formState.email,
+              state: formState.state,
+              message: formState.message,
+              consent_group: currentGroup,
+              tcpa_consent: consentState.mainConsent ? 'Yes' : 'No',
+              sensitive_data_consent: consentState.sensitiveDataConsent ? 'Yes' : 'No',
+              wa_health_consent: consentState.waHealthConsent ? 'Yes' : 'No',
+              ip_address: clientIp,
+              _subject: `New Claim Request - ${formState.name} (${formState.state})`,
+              _template: 'table',
+              _captcha: 'false',
+              _honey: '',
+              _replyto: formState.email,
+              _autoresponse: 'Thank you for contacting Autoclaimfiling.online! We have received your claim request and a specialist will reach out to you shortly.',
+              ...(formSubmitCc ? { _cc: formSubmitCc } : {}),
+            })
+          })
+        );
+      }
+
+      if (submissions.length === 0) {
+        throw new Error('No submission endpoints configured');
+      }
+
+      // Send to both Email and Google Sheets in parallel
+      const results = await Promise.allSettled(submissions);
+
+      // Check if at least one succeeded
+      const anySuccess = results.some(r => {
+        if (r.status === 'rejected') return false;
+        return r.value.type === 'opaque' || r.value.ok;
       });
 
-      // Google Apps Script with mode: 'no-cors' returns opaque response (status 0)
-      // so we treat any non-exception as success
-      if (response.type === 'opaque' || response.ok) {
+      if (anySuccess) {
         setSubmitStatus('success');
         setFormState({ name: '', phone: '', email: '', state: '', message: '' });
         setConsentState({ mainConsent: false, sensitiveDataConsent: false, waHealthConsent: false });

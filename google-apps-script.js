@@ -14,7 +14,7 @@
  */
 
 // Optional: set to an email address to receive notifications on each submission
-var NOTIFICATION_EMAIL = 'bipul281b@gmail.com';
+var NOTIFICATION_EMAIL = 'immaculatemedia2018@gmail.com';
 
 function doPost(e) {
   try {

@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activate Email Notifications</title>
+  <title>Activate FormSubmit.co Email Notifications</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -15,15 +21,17 @@
       justify-content: center;
       padding: 20px;
     }
+
     .card {
       background: white;
       border-radius: 16px;
       padding: 40px;
-      max-width: 480px;
+      max-width: 560px;
       width: 100%;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
       text-align: center;
     }
+
     .icon {
       width: 64px;
       height: 64px;
@@ -34,18 +42,26 @@
       justify-content: center;
       margin: 0 auto 24px;
     }
-    .icon svg { width: 32px; height: 32px; color: #2563eb; }
+
+    .icon svg {
+      width: 32px;
+      height: 32px;
+      color: #2563eb;
+    }
+
     h1 {
       font-size: 22px;
       color: #0f172a;
       margin-bottom: 12px;
     }
+
     .desc {
       color: #64748b;
       font-size: 15px;
       line-height: 1.6;
       margin-bottom: 28px;
     }
+
     .steps {
       text-align: left;
       background: #f8fafc;
@@ -53,6 +69,7 @@
       padding: 20px 24px;
       margin-bottom: 28px;
     }
+
     .steps h3 {
       font-size: 13px;
       text-transform: uppercase;
@@ -60,6 +77,7 @@
       color: #94a3b8;
       margin-bottom: 12px;
     }
+
     .step {
       display: flex;
       align-items: flex-start;
@@ -69,7 +87,11 @@
       color: #334155;
       line-height: 1.5;
     }
-    .step:last-child { margin-bottom: 0; }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
     .step-num {
       background: #2563eb;
       color: white;
@@ -84,6 +106,7 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
+
     .btn {
       display: inline-block;
       background: #2563eb;
@@ -98,14 +121,27 @@
       text-decoration: none;
       width: 100%;
     }
-    .btn:hover { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.4); }
-    .btn:active { transform: translateY(0); }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
     .note {
       margin-top: 20px;
       font-size: 13px;
       color: #94a3b8;
     }
-    .hidden { display: none; }
+
+    .hidden {
+      display: none;
+    }
+
     .success-msg {
       background: #f0fdf4;
       border: 1px solid #bbf7d0;
@@ -113,68 +149,188 @@
       padding: 20px;
       margin-top: 20px;
     }
+
     .success-msg p {
       color: #166534;
       font-size: 14px;
       line-height: 1.6;
     }
-    .success-msg strong { color: #15803d; }
+
+    .success-msg strong {
+      color: #15803d;
+    }
+
+    .features {
+      text-align: left;
+      background: #eff6ff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      border: 1px solid #bfdbfe;
+    }
+
+    .features h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      margin-bottom: 12px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.4;
+    }
+
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .check {
+      color: #22c55e;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .doc-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    .doc-link:hover {
+      color: #1d4ed8;
+    }
   </style>
 </head>
+
 <body>
   <div class="card">
     <div class="icon">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
       </svg>
     </div>
 
-    <h1>Action Required: Activate Email Notifications</h1>
+    <h1>Activate FormSubmit.co Email Notifications</h1>
     <p class="desc">
-      <strong>Attention Email Admin:</strong> Please complete this one-time setup to authorize the website to send inquiries to your inbox. This ensures you never miss a lead.
+      <strong>One-time setup required:</strong> Submit this form to trigger FormSubmit.co's activation process.
+      You'll receive a confirmation email — click the link inside to activate your endpoint.
     </p>
+
+    <div class="features">
+      <h3>Enabled Features (via FormSubmit.co)</h3>
+      <div class="feature-item">
+        <span class="check">&#10003;</span>
+        <span><strong>_subject</strong> — Dynamic email subject with lead name & state</span>
+      </div>
+      <div class="feature-item">
+        <span class="check">&#10003;</span>
+        <span><strong>_template: table</strong> — Clean table-formatted email layout</span>
+      </div>
+      <div class="feature-item">
+        <span class="check">&#10003;</span>
+        <span><strong>_replyto</strong> — Reply directly to the lead's email</span>
+      </div>
+      <div class="feature-item">
+        <span class="check">&#10003;</span>
+        <span><strong>_autoresponse</strong> — Automatic confirmation sent to the user</span>
+      </div>
+      <div class="feature-item">
+        <span class="check">&#10003;</span>
+        <span><strong>_honey</strong> — Honeypot spam protection (hidden field)</span>
+      </div>
+      <div class="feature-item">
+        <span class="check">&#10003;</span>
+        <span><strong>_captcha: false</strong> — Disabled reCAPTCHA for seamless AJAX flow</span>
+      </div>
+      <div class="feature-item">
+        <span class="check">&#10003;</span>
+        <span><strong>AJAX endpoint</strong> — Submits via <code>formsubmit.co/ajax/</code> for no-redirect UX</span>
+      </div>
+      <a href="https://formsubmit.co/documentation" target="_blank" rel="noopener noreferrer" class="doc-link">
+        View full FormSubmit.co documentation &rarr;
+      </a>
+    </div>
 
     <div class="steps">
       <h3>Activation Steps</h3>
       <div class="step">
         <span class="step-num">1</span>
-        <span>Click the <strong>"Activate Now"</strong> button below</span>
+        <span>Click the <strong>"Activate Now"</strong> button below to send an activation request</span>
       </div>
       <div class="step">
         <span class="step-num">2</span>
-        <span>You'll be redirected to a confirmation page</span>
+        <span>You'll be redirected to FormSubmit.co's confirmation page</span>
       </div>
       <div class="step">
         <span class="step-num">3</span>
-        <span>Check the inbox of <strong>chilledbigfoot@gmail.com</strong> for a confirmation email</span>
+        <span>Check the inbox of <strong>autoclaimfiling@gmail.com</strong> for a confirmation email from FormSubmit.co</span>
       </div>
       <div class="step">
         <span class="step-num">4</span>
-        <span>Click the link in that email to finalize the setup</span>
+        <span>Click the activation link in that email to finalize the endpoint</span>
+      </div>
+      <div class="step">
+        <span class="step-num">5</span>
+        <span>Once activated, all form submissions will be emailed instantly with the features listed above</span>
       </div>
     </div>
 
-    <form id="activateForm" action="https://formsubmit.co/chilledbigfoot@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="URGENT: Activate Website Form">
+    <form id="activateForm" action="https://formsubmit.co/autoclaimfiling@gmail.com" method="POST">
+      <!-- FormSubmit.co configuration fields (https://formsubmit.co/documentation) -->
+      <input type="hidden" name="_subject" value="ACTIVATE: Autoclaimfiling.online Form Endpoint">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="name" value="Website Admin">
-      <input type="hidden" name="email" value="chilledbigfoot@gmail.com">
-      <input type="hidden" name="message" value="Please activate the form submission feature.">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_cc" value="immaculatemedia2018@gmail.com">
+      <input type="hidden" name="_autoresponse" value="Your FormSubmit.co endpoint for Autoclaimfiling.online has been activated! You will now receive email notifications for every form submission.">
+      <input type="hidden" name="_replyto" value="autoclaimfiling@gmail.com">
+
+      <!-- Test data to verify the endpoint works -->
+      <input type="hidden" name="name" value="Activation Test">
+      <input type="hidden" name="email" value="autoclaimfiling@gmail.com">
+      <input type="hidden" name="message" value="This is an activation request for the Autoclaimfiling.online contact form. Once you confirm, the AJAX endpoint (formsubmit.co/ajax/) will be ready to receive submissions with features: _subject, _template, _replyto, _autoresponse, _honey, _cc, and _captcha.">
+      <input type="hidden" name="source" value="activate-formsubmit.html">
+
+      <!-- Honeypot spam protection -->
+      <input type="text" name="_honey" style="display: none">
+
       <button type="submit" class="btn" id="activateBtn">Activate Now</button>
     </form>
 
-    <p class="note">This is a one-time process. Once activated, all future form submissions will be delivered directly to <strong>chilledbigfoot@gmail.com</strong>.</p>
+    <p class="note">
+      This is a one-time process. Once activated, your AJAX endpoint
+      (<code>formsubmit.co/ajax/autoclaimfiling@gmail.com</code>) will deliver all submissions to your inbox.
+      A copy will also be sent to <code>immaculatemedia2018@gmail.com</code> via CC.
+      <br><br>
+      <a href="https://formsubmit.co/documentation" target="_blank" rel="noopener noreferrer" class="doc-link">
+        FormSubmit.co Documentation
+      </a>
+    </p>
 
     <div id="successMsg" class="success-msg hidden">
-      <p><strong>Step 1 Complete!</strong> Now check your inbox at <strong>chilledbigfoot@gmail.com</strong> for an email from FormSubmit.co. Click the activation link inside to finish setup.</p>
+      <p><strong>Step 1 Complete!</strong> Now check your inbox at <strong>autoclaimfiling@gmail.com</strong> for an
+        email from FormSubmit.co. Click the activation link inside to finish setup. After activation, your contact form
+        will automatically send email notifications to both <strong>autoclaimfiling@gmail.com</strong> and
+        <strong>immaculatemedia2018@gmail.com</strong> (via CC).</p>
     </div>
   </div>
 
   <script>
-    document.getElementById('activateForm').addEventListener('submit', function() {
+    document.getElementById('activateForm').addEventListener('submit', function () {
       document.getElementById('activateBtn').textContent = 'Redirecting...';
       document.getElementById('activateBtn').disabled = true;
     });
   </script>
 </body>
+
 </html>

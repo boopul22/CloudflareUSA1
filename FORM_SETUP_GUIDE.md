@@ -18,21 +18,45 @@
 
 ## 📧 Part 1: Setup FormSubmit.co (Email Notifications)
 
-### Step 1: Get Your FormSubmit Endpoint
+> **Full docs:** [https://formsubmit.co/documentation](https://formsubmit.co/documentation)
 
-1. Go to [formsubmit.co](https://formsubmit.co)
-2. Enter your email address
-3. You'll receive an activation email - **click to verify**
-4. Your endpoint will be:
-   ```
-   https://formsubmit.co/ajax/YOUR_EMAIL_OR_HASH
-   ```
+### Step 1: Activate Your FormSubmit Endpoint
 
-### Step 2: Your FormSubmit Endpoint
+FormSubmit.co requires a **one-time email activation** before it will deliver submissions. Use the built-in activation page:
 
-Replace `YOUR_EMAIL_OR_HASH` with:
-- Your email: `https://formsubmit.co/ajax/youremail@gmail.com`
-- Or use the hash they provide for privacy
+1. Open `public/activate-formsubmit.html` in your browser (or visit it on your deployed site)
+2. Click **"Activate Now"** — this sends a test submission to FormSubmit.co
+3. Check the inbox of `autoclaimfiling@gmail.com` for a confirmation email from FormSubmit.co
+4. **Click the activation link** in that email to finalize setup
+
+> **Important:** The endpoint will NOT work until you complete this activation step.
+
+### Step 2: Set Your Environment Variable
+
+Add the AJAX endpoint to your `.env.local`:
+```
+VITE_FORMSUBMIT_URL=https://formsubmit.co/ajax/autoclaimfiling@gmail.com
+VITE_FORMSUBMIT_CC=immaculatemedia2018@gmail.com
+```
+
+You can also use the random hash FormSubmit provides for email privacy:
+```
+VITE_FORMSUBMIT_URL=https://formsubmit.co/ajax/YOUR_RANDOM_HASH
+```
+
+### Step 3: FormSubmit Features Used
+
+The contact form uses these FormSubmit.co features (configured as hidden fields in the AJAX request):
+
+| Field | Value | Purpose |
+|-------|-------|---------|
+| `_subject` | Dynamic (lead name + state) | Custom email subject line |
+| `_template` | `table` | Clean table-formatted email layout |
+| `_replyto` | User's email | Reply directly to the lead |
+| `_autoresponse` | Custom message | Automatic confirmation sent to user |
+| `_honey` | Empty (hidden) | Honeypot spam protection |
+| `_cc` | `immaculatemedia2018@gmail.com` | CC notifications to additional email |
+| `_captcha` | `false` | Disabled reCAPTCHA for seamless AJAX flow |
 
 > **📝 Write your endpoint here:**
 > ```
@@ -404,13 +428,13 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
 Before going live, make sure you've completed:
 
-- [ ] Created FormSubmit.co endpoint and verified email
+- [ ] **Activated FormSubmit.co endpoint** via `public/activate-formsubmit.html` (one-time)
+- [ ] Clicked the activation link in the confirmation email from FormSubmit.co
+- [ ] Set `VITE_FORMSUBMIT_URL` in `.env.local`
 - [ ] Created Google Sheet with correct headers
 - [ ] Created and deployed Google Apps Script
-- [ ] Replaced `FORMSUBMIT_URL` with your endpoint
-- [ ] Replaced `GOOGLE_SHEETS_URL` with your script URL
-- [ ] Replaced `EMAIL_SUBJECT` with your desired subject line
-- [ ] Tested form submission (check email AND spreadsheet)
+- [ ] Set `VITE_GOOGLE_SHEET_URL` in `.env.local`
+- [ ] Tested form submission (check **both** email AND spreadsheet)
 
 ---
 
@@ -434,11 +458,13 @@ Before going live, make sure you've completed:
 
 ## 📝 Quick Reference - Your Endpoints
 
-| Service | Your URL |
-|---------|----------|
-| FormSubmit.co | `https://formsubmit.co/ajax/_______________` |
-| Google Sheets | `https://script.google.com/macros/s/_______________/exec` |
-| Email Subject | `_________________________` |
+| Service | Env Variable | Your URL |
+|---------|-------------|----------|
+| FormSubmit.co | `VITE_FORMSUBMIT_URL` | `https://formsubmit.co/ajax/autoclaimfiling@gmail.com` |
+| FormSubmit CC | `VITE_FORMSUBMIT_CC` | `immaculatemedia2018@gmail.com` |
+| Google Sheets | `VITE_GOOGLE_SHEET_URL` | `https://script.google.com/macros/s/_______________/exec` |
+| Activation Page | — | `public/activate-formsubmit.html` |
+| FormSubmit Docs | — | `https://formsubmit.co/documentation` |
 
 ---
 
