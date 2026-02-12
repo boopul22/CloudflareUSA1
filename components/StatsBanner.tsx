@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Phone, Clock, Trophy } from 'lucide-react';
+import { Phone, Clock, Trophy } from 'lucide-react';
 import { Button } from './ui/Button';
 
 export const StatsBanner: React.FC = () => {
@@ -13,18 +13,9 @@ export const StatsBanner: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 items-center">
 
-          {/* Stat 1 */}
-          <div className="flex items-center gap-5 border-b border-white/10 md:border-b-0 md:border-r pb-8 md:pb-0 md:pr-8">
-            <div className="p-3 bg-white/5 rounded-2xl">
-              <CheckCircle2 className="w-8 h-8 text-green-400 flex-shrink-0" />
-            </div>
-            <div>
-              <p className="text-4xl font-bold tracking-tight">98%</p>
-              <p className="text-gray-400 text-sm font-medium">Success Rate</p>
-            </div>
-          </div>
+          {/* Stat 1 removed */}
 
           {/* Stat 2 */}
           <div className="flex items-center gap-5 border-b border-white/10 md:border-b-0 lg:border-r pb-8 md:pb-0 md:pr-8">
