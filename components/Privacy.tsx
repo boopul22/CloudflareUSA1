@@ -157,7 +157,7 @@ export const Privacy: React.FC = () => {
             </p>
             <div className="bg-brand-primary/5 border border-brand-primary/20 rounded-lg p-5">
               <p className="leading-relaxed">
-                <strong>How to Opt-Out:</strong> To exercise this right, please visit our <a href="#privacy-choices" className="text-brand-primary hover:underline">Your Privacy Choices</a> page or email us at <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a> with the subject line "Opt-Out Request."
+                <strong>How to Opt-Out:</strong> To exercise this right, please visit our <a href="#privacy-choices" className="text-brand-primary hover:underline">Your Privacy Choices</a> page or email us at <a href="mailto:help@autoclaimfiling.online" className="text-brand-primary hover:underline">help@autoclaimfiling.online</a> with the subject line "Opt-Out Request."
               </p>
             </div>
           </section>
@@ -208,7 +208,7 @@ export const Privacy: React.FC = () => {
             </p>
             <div className="bg-gray-50 rounded-lg p-5 border border-gray-100">
               <p className="mb-2"><strong>Autoclaimfiling.online</strong></p>
-              <p className="mb-1">Email: <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a></p>
+              <p className="mb-1">Email: <a href="mailto:help@autoclaimfiling.online" className="text-brand-primary hover:underline">help@autoclaimfiling.online</a></p>
               <p>Address: C/O Nra Accountancy, Arrow Mill, Queensway, Rochdale, Lancashire, England, OL11 2YW</p>
             </div>
           </section>

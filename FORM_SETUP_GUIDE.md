@@ -26,7 +26,7 @@ FormSubmit.co requires a **one-time email activation** before it will deliver su
 
 1. Open `public/activate-formsubmit.html` in your browser (or visit it on your deployed site)
 2. Click **"Activate Now"** — this sends a test submission to FormSubmit.co
-3. Check the inbox of `autoclaimfiling@gmail.com` for a confirmation email from FormSubmit.co
+3. Check the inbox of `help@autoclaimfiling.online` for a confirmation email from FormSubmit.co
 4. **Click the activation link** in that email to finalize setup
 
 > **Important:** The endpoint will NOT work until you complete this activation step.
@@ -35,8 +35,8 @@ FormSubmit.co requires a **one-time email activation** before it will deliver su
 
 Add the AJAX endpoint to your `.env.local`:
 ```
-VITE_FORMSUBMIT_URL=https://formsubmit.co/ajax/autoclaimfiling@gmail.com
-VITE_FORMSUBMIT_CC=autoclaimfiling@gmail.com
+VITE_FORMSUBMIT_URL=https://formsubmit.co/ajax/help@autoclaimfiling.online
+VITE_FORMSUBMIT_CC=help@autoclaimfiling.online
 ```
 
 You can also use the random hash FormSubmit provides for email privacy:
@@ -55,7 +55,7 @@ The contact form uses these FormSubmit.co features (configured as hidden fields 
 | `_replyto` | User's email | Reply directly to the lead |
 | `_autoresponse` | Custom message | Automatic confirmation sent to user |
 | `_honey` | Empty (hidden) | Honeypot spam protection |
-| `_cc` | `autoclaimfiling@gmail.com` | CC notifications to additional email |
+| `_cc` | `help@autoclaimfiling.online` | CC notifications to additional email |
 | `_captcha` | `false` | Disabled reCAPTCHA for seamless AJAX flow |
 
 > **📝 Write your endpoint here:**
@@ -460,8 +460,8 @@ Before going live, make sure you've completed:
 
 | Service | Env Variable | Your URL |
 |---------|-------------|----------|
-| FormSubmit.co | `VITE_FORMSUBMIT_URL` | `https://formsubmit.co/ajax/autoclaimfiling@gmail.com` |
-| FormSubmit CC | `VITE_FORMSUBMIT_CC` | `autoclaimfiling@gmail.com` |
+| FormSubmit.co | `VITE_FORMSUBMIT_URL` | `https://formsubmit.co/ajax/help@autoclaimfiling.online` |
+| FormSubmit CC | `VITE_FORMSUBMIT_CC` | `help@autoclaimfiling.online` |
 | Google Sheets | `VITE_GOOGLE_SHEET_URL` | `https://script.google.com/macros/s/_______________/exec` |
 | Activation Page | — | `public/activate-formsubmit.html` |
 | FormSubmit Docs | — | `https://formsubmit.co/documentation` |

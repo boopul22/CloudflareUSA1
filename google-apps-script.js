@@ -14,7 +14,7 @@
  */
 
 // Optional: set to an email address to receive notifications on each submission
-var NOTIFICATION_EMAIL = 'autoclaimfiling@gmail.com';
+var NOTIFICATION_EMAIL = 'help@autoclaimfiling.online';
 
 function doPost(e) {
   try {

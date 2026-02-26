@@ -47,7 +47,7 @@ export const PrivacyChoices: React.FC = () => {
             };
 
             // Send email notification via FormSubmit.co
-            const emailResponse = await fetch('https://formsubmit.co/ajax/autoclaimfiling@gmail.com', {
+            const emailResponse = await fetch('https://formsubmit.co/ajax/help@autoclaimfiling.online', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -291,13 +291,13 @@ export const PrivacyChoices: React.FC = () => {
                     <section>
                         <h2 className="text-xl font-bold text-brand-dark mb-4">4. OTHER CONTACT METHODS</h2>
                         <p className="mb-2">If you have difficulty using the form, you may also submit your request via:</p>
-                        <p><strong>Email:</strong> <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:help@autoclaimfiling.online" className="text-brand-primary hover:underline">help@autoclaimfiling.online</a></p>
                     </section>
 
                     <section>
                         <h2 className="text-xl font-bold text-brand-dark mb-4">5. AUTHORIZED AGENTS</h2>
                         <p>
-                            If you are submitting this request on behalf of another person, you must provide written proof of your authority (such as a power of attorney) to <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a> before we can process the request.
+                            If you are submitting this request on behalf of another person, you must provide written proof of your authority (such as a power of attorney) to <a href="mailto:help@autoclaimfiling.online" className="text-brand-primary hover:underline">help@autoclaimfiling.online</a> before we can process the request.
                         </p>
                     </section>
 

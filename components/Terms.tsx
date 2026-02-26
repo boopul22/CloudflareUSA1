@@ -257,7 +257,7 @@ export const Terms: React.FC = () => {
           <section id="ada">
             <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">16. ADA Compliance</h2>
             <p className="leading-relaxed">
-              We are committed to accessibility. If you have difficulty navigating our content, please contact us at <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a>.
+              We are committed to accessibility. If you have difficulty navigating our content, please contact us at <a href="mailto:help@autoclaimfiling.online" className="text-brand-primary hover:underline">help@autoclaimfiling.online</a>.
             </p>
           </section>
 
@@ -265,7 +265,7 @@ export const Terms: React.FC = () => {
             <h2 className="text-xl md:text-2xl font-bold text-brand-dark mb-4">17. Contact Us</h2>
             <div className="bg-gray-50 rounded-lg p-5 border border-gray-100">
               <p className="mb-2"><strong>Autoclaimfiling.online</strong></p>
-              <p className="mb-1">Email: <a href="mailto:autoclaimfiling@gmail.com" className="text-brand-primary hover:underline">autoclaimfiling@gmail.com</a></p>
+              <p className="mb-1">Email: <a href="mailto:help@autoclaimfiling.online" className="text-brand-primary hover:underline">help@autoclaimfiling.online</a></p>
               <p>Address: C/O Nra Accountancy, Arrow Mill, Queensway, Rochdale, Lancashire, England, OL11 2YW</p>
             </div>
           </section>
