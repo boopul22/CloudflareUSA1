@@ -123,7 +123,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
-            <p>&copy; 2025 Autoclaimfiling.online. All rights reserved.</p>
+            <p>&copy; 2060 Autoclaimfiling.online. All rights reserved.</p>
             <div className="flex gap-4 items-center">
               <a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a>
               <span>|</span>
